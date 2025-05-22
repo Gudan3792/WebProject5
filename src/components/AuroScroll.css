@@ -1,0 +1,34 @@
+.auto-scroll-list {
+    /* Chrome, Safari, Opera */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE, Edge */
+    aspect-ratio: '3/5';
+}
+.auto-scroll-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+    cursor: grab;
+    user-select: none;
+    scroll-behavior: auto;
+}
+
+.auto-scroll-list.dragging {
+    cursor: grabbing;
+}
+.prevent-select,
+.auto-scroll-list {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* 표준 */
+}
+
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+    .auto-scroll-list {
+        min-height: 55vh;
+    }
+    .selected-cards-title {
+        margin-top: 0;
+    }
+    .selected-cards-section {
+        margin-top: 0;
+    }
+}

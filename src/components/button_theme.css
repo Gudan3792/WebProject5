@@ -1,0 +1,22 @@
+.theme-btn {
+  background: linear-gradient(90deg, #b9a0ff 0%, #e0baff 100%);
+  color: #2b1055;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-family: inherit;
+  font-size: 1.1em;
+  margin-left: 8px;
+  box-shadow: 0 2px 12px #b9a0ff44;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.theme-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #e0baff 0%, #b9a0ff 100%);
+  box-shadow: 0 4px 24px #e0baff99;
+}
+.theme-btn:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}

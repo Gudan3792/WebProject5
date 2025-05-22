@@ -1,0 +1,181 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Pretendard', 'Noto Sans KR', 'Playfair Display', serif;
+    background: #21113a;
+}
+body::before {
+    content: '';
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/bg.png'), linear-gradient(120deg, #2b1055 0%, #7597de 100%);
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-position: center center, center center; /* 중앙 정렬 */
+    filter: blur(8px) brightness(0.9);
+    opacity: 1;
+    pointer-events: none;
+}
+
+.main-bg-pro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.main-center-pro {
+    background: rgba(40, 20, 60, 0.72);
+    border-radius: 32px;
+    box-shadow: 0 8px 48px #2b105588, 0 0 0 2px #b9a0ff33;
+    padding: 54px 32px 40px 32px;
+    text-align: center;
+    max-width: 480px;
+    margin: 80px auto 40px auto;
+    position: relative;
+    z-index: 1;
+}
+.main-header {
+    margin-bottom: 24px;
+}
+.main-logo {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 12px #e0baff88);
+}
+.main-title-pro {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 0.03em;
+    text-shadow: 0 2px 16px #b9a0ff99;
+}
+.main-subtitle {
+    color: #e0baff;
+    font-size: 1.1em;
+    margin-bottom: 0;
+    text-shadow: 0 2px 8px #b9a0ff44;
+}
+.main-divider {
+    height: 1.5px;
+    background: linear-gradient(90deg, #e0baff 0%, #2b1055 100%);
+    margin: 18px 0 28px 0;
+    border: none;
+    opacity: 0.5;
+}
+.button-pro {
+    background: linear-gradient(90deg, #b9a0ff 0%, #e0baff 100%);
+    color: #2b1055;
+    border: none;
+    border-radius: 12px;
+    padding: 18px 44px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 24px;
+    box-shadow: 0 2px 16px #b9a0ff44;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.button-pro:hover {
+    background: linear-gradient(90deg, #e0baff 0%, #b9a0ff 100%);
+    box-shadow: 0 4px 32px #e0baff99;
+}
+.button-pro.start {
+    margin-top: 32px;
+    width: 90%;
+}
+.select-Tarot-container-pro {
+    margin-top: 32px;
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    padding: 32px 16px 28px 16px;
+    box-shadow: 0 2px 16px #b9a0ff22;
+    animation: fadeIn 0.5s;
+}
+.title-pro {
+    color: #e0baff;
+    font-size: 1.25em;
+    margin-bottom: 20px;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+}
+.card-count-group,
+.theme-list-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+.theme-btn-pro {
+    background: #fff2;
+    color: #e0baff;
+    border: 1.5px solid #e0baff55;
+    border-radius: 8px;
+    padding: 12px 22px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    margin-bottom: 8px;
+}
+.theme-btn-pro.active,
+.theme-btn-pro:disabled {
+    background: #e0baff44;
+    color: #b9a0ff99;
+    border: 2px solid #e0baff;
+    cursor: url('/cursor2.png') 0 0, auto;
+}
+.theme-btn-pro:not(.active):not(:disabled):hover {
+    background: #e0baff;
+    color: #2b1055;
+    border: 2px solid #b9a0ff;
+}
+.fade-in {
+    animation: fadeIn 0.6s;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.main-footer {
+    text-align: center;
+    color: #b9a0ffcc;
+    font-size: 0.98em;
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+    opacity: 0.8;
+}
+.user-info-group {
+    margin-top: 28px;
+    margin-bottom: 18px;
+}
+.age-group,
+.gender-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.theme-btn-pro.active {
+    background: #e0baff44;
+    color: #b9a0ff99;
+    border: 2px solid #e0baff;
+    cursor: not-allowed;
+}

@@ -1,0 +1,225 @@
+.result-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 24px 48px 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+}
+.result-container h2 {
+    color: #fff;
+    text-shadow: 0 2px 8px #000, 0 0 2px #000;
+}
+.result-cardlist-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    max-width: 900px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; /* 줄넘김 허용 */
+    align-items: flex-end;
+    gap: 28px;
+    width: 100%;
+    min-height: 220px;
+    background: none;
+    padding: 0;
+    height: auto;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+    transition: filter 0.3s;
+}
+
+.result-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    z-index: 10;
+    width: 64px;
+    height: 64px;
+    border: 7px solid #e0baff;
+    border-top: 7px solid #b9a0ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    background: none;
+    box-shadow: 0 2px 18px #b9a0ff55;
+    pointer-events: none;
+}
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -60%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -60%) rotate(360deg);
+    }
+}
+
+.card-guide-float {
+    position: absolute;
+    left: auto;
+    top: 70%;
+    transform: translateX(-50%);
+
+    color: #fff;
+
+    font-size: 1.15em;
+    font-weight: bold;
+
+    letter-spacing: 0.01em;
+    display: inline-block;
+    z-index: 10;
+    white-space: nowrap;
+    user-select: none;
+    text-shadow: 0 2px 8px #000, 0 0 2px #000;
+    animation: floatFadeIn 0.7s cubic-bezier(0.4, 2, 0.6, 1);
+    animation: pulse 1.5s infinite;
+}
+
+.result-summary-block {
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    padding: 36px 28px 30px 28px;
+    box-shadow: 0 2px 16px #b9a0ff22;
+    margin-bottom: 36px;
+    color: #fff;
+    font-size: 1.14em;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.result-loading-text {
+    display: block;
+    text-align: center;
+    font-size: 1.2em;
+    margin: 32px 0;
+    color: #e0baff;
+}
+
+.theme-btn {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #b9a0ff 0%, #e0baff 100%);
+    color: #2b1055;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    font-size: 1.08em;
+    font-family: inherit;
+    box-shadow: 0 2px 12px #b9a0ff44;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.theme-btn:hover {
+    background: linear-gradient(90deg, #e0baff 0%, #b9a0ff 100%);
+    box-shadow: 0 4px 24px #e0baff99;
+}
+
+@media (max-width: 700px) {
+    .card-list {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE, Edge */
+        padding-left: 0 !important;
+        justify-content: flex-start; /* ← 핵심! */
+        gap: 10px;
+    }
+    .card-list::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    .card-list > *:first-child {
+        margin-left: 0 !important;
+    }
+    .card-list > * {
+        flex-shrink: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .result-container {
+        padding: 32px 4vw 32px 4vw;
+    }
+    .result-summary-block {
+        padding: 20px 4vw 18px 4vw;
+        font-size: 1em;
+    }
+    .card-guide-float {
+        top: 40%;
+    }
+
+    .card-list {
+        gap: 10px;
+    }
+}
+
+@keyframes floatFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-16px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* 카드 리스트 블러 효과는 인라인 스타일에서 처리 (filter) */
+.result-back-btn {
+    margin-top: 32px;
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 1.13em;
+    font-weight: 600;
+    color: #e0baff;
+    background: transparent;
+    border: 2px solid #b9a0ff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px #b9a0ff22;
+    cursor: pointer;
+    transition: background 0.25s cubic-bezier(0.4, 2, 0.6, 1), color 0.25s cubic-bezier(0.4, 2, 0.6, 1),
+        border 0.25s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.25s;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+}
+
+.result-back-btn:hover,
+.result-back-btn:focus {
+    background: linear-gradient(90deg, #b9a0ff 0%, #e0baff 100%);
+    color: #2b1055;
+    border-color: #e0baff;
+    box-shadow: 0 4px 32px #b9a0ff88;
+    text-decoration: none;
+}
+
+.result-back-btn:active {
+    filter: brightness(0.95);
+}
